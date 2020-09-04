@@ -1,4 +1,6 @@
-﻿<!-- nav -->
+﻿<header class="intro-header " [ngClass]="!user ? 'bg view' : ''">
+
+<!-- nav for users-->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
@@ -7,36 +9,24 @@
     </div>
 </nav>
 
+    <!-- nav for Login&Register page-->
+    <div class="d-flex align-items-center nav-color" *ngIf="!user">
+        <!--Logo-->
+        <div class="col-3 py-2"><img class="logo" src="assets/img/transparent-logo.png"></div>
+        <!--Title text-->
+        <div class="col-6">
+            <div class="example text-center">Next Generation Laboratory</div>
+            <div class="example text-center">(LIMS)</div>
+        </div>
+    </div>
+
+
 <!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }" *ngIf="user">
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
     <alert></alert>
     <router-outlet></router-outlet>
 </div>
-
-
-<div class="app-container" [ngClass]="{ 'bg-light': user }" *ngIf="!user">
-    <section class='view bg' >
-        <!--Navigation bar-->
-        <!--Container-->
-        <div class="d-flex align-items-center nav-color">
-            
-            <!--Logo-->
-            <div class="col-3 nopadding">
-                <img class="logo" src="assets/img/transparent-logo.png">
-            </div>
-            <!--Title text-->
-            <div class="col-6">
-                <div class="example text-center">
-                    Next Generation Laboratory (LIMS)
-                </div>
-            </div>
-            
-        </div>
-        <alert></alert>
-        <router-outlet></router-outlet>
-    </section>
-</div>
-
+</header>
 
 <!-- credits -->
 <div class="text-center mt-4">
@@ -44,7 +34,7 @@
     <p>
         Custom made by:
     </p>
-    <a href="https://fontmeme.com/signature-fonts/"><img src="https://fontmeme.com/permalink/200831/ec5cea1cb0b12d2b277ac1fa25695c4b.png" alt="signature-fonts" border="0"></a>
+        <a href=""><img src="https://fontmeme.com/permalink/200831/ec5cea1cb0b12d2b277ac1fa25695c4b.png" alt="signature-fonts" ></a>
     
     <p>
         <a href="https://jasonwatmore.com/post/2020/07/18/angular-10-user-registration-and-login-example-tutorial" target="_top">Angular 10 - User Registration and Login Example & Tutorial</a>
